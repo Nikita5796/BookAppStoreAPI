@@ -1,0 +1,14 @@
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\bin\Debug\netcoreapp2.1\BookApp.API.deps.json
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\bin\Debug\netcoreapp2.1\BookApp.API.runtimeconfig.json
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\bin\Debug\netcoreapp2.1\BookApp.API.runtimeconfig.dev.json
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\bin\Debug\netcoreapp2.1\BookApp.API.dll
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\bin\Debug\netcoreapp2.1\BookApp.API.pdb
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.csproj.CoreCompileInputs.cache
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.RazorAssemblyInfo.cache
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.RazorAssemblyInfo.cs
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.AssemblyInfoInputs.cache
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.AssemblyInfo.cs
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.RazorTargetAssemblyInfo.cache
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.dll
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.pdb
+C:\Users\NikitaT\source\repos\DemoBookAppAPI\BookApp.API\obj\Debug\netcoreapp2.1\BookApp.API.csprojAssemblyReference.cache

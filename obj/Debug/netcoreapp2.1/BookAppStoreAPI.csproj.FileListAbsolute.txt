@@ -3,7 +3,6 @@ C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\bin\Debu
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\bin\Debug\netcoreapp2.1\BookAppStoreAPI.runtimeconfig.dev.json
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\bin\Debug\netcoreapp2.1\BookAppStoreAPI.dll
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\bin\Debug\netcoreapp2.1\BookAppStoreAPI.pdb
-C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debug\netcoreapp2.1\BookAppStoreAPI.csprojAssemblyReference.cache
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debug\netcoreapp2.1\BookAppStoreAPI.csproj.CoreCompileInputs.cache
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debug\netcoreapp2.1\BookAppStoreAPI.RazorAssemblyInfo.cache
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debug\netcoreapp2.1\BookAppStoreAPI.RazorAssemblyInfo.cs

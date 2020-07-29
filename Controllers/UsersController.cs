@@ -8,6 +8,7 @@ using BookApp.API.Helpers;
 using BookApp.API.Services;
 using BookApp.BLL;
 using BookApp.DAL;
+using BookAppStoreAPI.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +22,7 @@ namespace BookApp.API.Controllers
 
         private IUserService _userService;
         JWTHelper jwtHelper = new JWTHelper();
-        //RefreshTokenHelper refToken = new RefreshTokenHelper();
+        RefreshTokenHelper refToken = new RefreshTokenHelper();
         UserContext context = new UserContext();
 
         public UsersController(IUserService userService)
@@ -39,9 +40,9 @@ namespace BookApp.API.Controllers
             if (user != null)
             {
                 user.Token = jwtHelper.Generate_Access_Token(user); //access token creation
-                //var refreshToken = refToken.Generate_Refresh_Token(); //Refresh token creation
+                var refreshToken = refToken.Generate_Refresh_Token(); //Refresh token creation
 
-                //context.StoreRefreshToken(refreshToken,user.UserId,user.Token); //refresh token store in DB
+                context.StoreRefreshToken(refreshToken,user.UserId,user.Token); //refresh token store in DB
             }
 
             return Ok(user);

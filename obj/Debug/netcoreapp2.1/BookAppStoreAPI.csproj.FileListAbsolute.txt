@@ -11,3 +11,4 @@ C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debu
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debug\netcoreapp2.1\BookAppStoreAPI.RazorTargetAssemblyInfo.cache
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debug\netcoreapp2.1\BookAppStoreAPI.dll
 C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debug\netcoreapp2.1\BookAppStoreAPI.pdb
+C:\Users\NikitaT\Desktop\BookApp_Recent\BookAppStoreAPI\BookAppStoreAPI\obj\Debug\netcoreapp2.1\BookAppStoreAPI.csprojAssemblyReference.cache

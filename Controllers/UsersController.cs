@@ -22,7 +22,6 @@ namespace BookApp.API.Controllers
 
         private IUserService _userService;
         JWTHelper jwtHelper = new JWTHelper();
-        RefreshTokenHelper refToken = new RefreshTokenHelper();
         UserContext context = new UserContext();
 
         public UsersController(IUserService userService)
@@ -32,13 +31,14 @@ namespace BookApp.API.Controllers
 
         //login
         [AllowAnonymous]
-        [HttpPost("authenticate")]
+        [HttpPost("login")]
         public IActionResult Authenticate([FromBody]User userParam)
         {
             var user = _userService.Authenticate(userParam.EmailId, userParam.Password); //authentication
 
             if (user != null)
             {
+                RefreshTokenHelper refToken = new RefreshTokenHelper();
                 user.Token = jwtHelper.Generate_Access_Token(user); //access token creation
                 var refreshToken = refToken.Generate_Refresh_Token(); //Refresh token creation
 
@@ -51,7 +51,7 @@ namespace BookApp.API.Controllers
 
 
         //register
-        [HttpPost("add")]
+        [HttpPost("Register")]
         public ActionResult<User> AddUser(User user)
         {
             UserObj.AddUser(user);

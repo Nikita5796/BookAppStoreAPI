@@ -65,8 +65,6 @@ namespace BookApp.DAL
             User user = null;
             try
             {
-                
-                //cmd.CommandText = "UserLogin";
                 cmd = new SqlCommand("UserLogin", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@EmailId", emailId);
@@ -90,8 +88,6 @@ namespace BookApp.DAL
                     StateId = Convert.ToInt32(dt.Rows[0]["StateId"]),
                     CityId = Convert.ToInt32(dt.Rows[0]["CityId"]),
                     PostalCode = Convert.ToInt32(dt.Rows[0]["PostalCode"]),
-                    Token = dt.Rows[0]["Token"].ToString(),
-                    RefreshToken = dt.Rows[0]["RefreshToken"].ToString()
                 };
             }
             catch (Exception ex)
@@ -128,8 +124,6 @@ namespace BookApp.DAL
                     StateId = Convert.ToInt32(dt.Rows[0]["StateId"]),
                     CityId = Convert.ToInt32(dt.Rows[0]["CityId"]),
                     PostalCode = Convert.ToInt32(dt.Rows[0]["PostalCode"]),
-                    Token = dt.Rows[0]["Token"].ToString(),
-                    RefreshToken = dt.Rows[0]["RefreshToken"].ToString()
                 };
 
                 list.Add(user);

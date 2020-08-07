@@ -52,7 +52,8 @@ namespace BookApp.BLL
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
+                return null;
             }
         }
 

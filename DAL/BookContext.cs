@@ -121,19 +121,14 @@ namespace BookApp.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 if (categoryid == 0)
                 {
+                    cmd.CommandText = "GetAllBooks";
+                }
+                else
+                {
                     cmd.CommandText = "GetBookByCategoryId";
+                    cmd.Parameters.AddWithValue("@CategoryId", categoryid);
                 }
-                else {
-                    if (categoryid == 1)
-                    {
-                        cmd.CommandText = "usp_GetBook_Programming";
-                    }
-                    else
-                    {
-                        cmd.CommandText = "usp_GetBook_Biography";
-                    }
-                }
-                cmd.Parameters.AddWithValue("@CategoryId", categoryid);
+                
                 conn.Open();
 
                 reader = cmd.ExecuteReader();

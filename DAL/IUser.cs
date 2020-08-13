@@ -1,4 +1,5 @@
 ﻿using BookApp.API.Entities;
+using BookAppStoreAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace BookApp.DAL
     public interface IUser
     {
         bool AddUser(User user);
-        //bool UserLogin(string emailId, string password);
         List<User> GetUsers();
+        List<City> GetCities();
+        List<State> GetStates();
     }
 }

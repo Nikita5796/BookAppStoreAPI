@@ -1,4 +1,5 @@
 ﻿using BookApp.API.Entities;
+using BookAppStoreAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +15,9 @@ namespace BookApp.DAL
         SqlConnection conn;
         SqlCommand cmd;
         SqlDataReader reader;
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
 
         public BookContext()
         {
@@ -56,60 +60,6 @@ namespace BookApp.DAL
             }
             return status;
         }
-
-        //public List<Book> GetBooks()
-        //{
-        //    List<Book> list = null;
-
-        //    try
-        //    {
-        //        cmd = conn.CreateCommand();
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        cmd.CommandText = "GetAllBooks";
-
-        //        conn.Open();
-
-        //        reader = cmd.ExecuteReader();
-
-        //        if (reader.HasRows)
-        //        {
-        //            list = new List<Book>();
-        //            while (reader.Read())
-        //            {
-        //                Book book = new Book
-        //                {
-        //                    BookId = reader.GetInt32(0),
-        //                    ImageUrl = reader.GetString(1),
-        //                    Title = reader.GetString(2),
-        //                    Author = reader.GetString(3),
-        //                    CategoryId = reader.GetInt32(4),
-        //                    Publisher = reader.GetString(5),
-        //                    NoOfPages = reader.GetInt32(6),
-        //                    Ratings = reader.GetDecimal(7),
-        //                    Edition = reader.GetString(8),
-        //                    Price = reader.GetDecimal(9),
-        //                    ReleaseDate = reader.GetDateTime(10) 
-        //                };
-
-        //                list.Add(book);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            throw new Exception("No Data found");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        reader.Close();
-        //        conn.Close();
-        //    }
-        //    return list;
-        //}
 
         public List<Book> GetBookByCategory(int categoryid)
         {
@@ -179,31 +129,12 @@ namespace BookApp.DAL
 
             try
             {
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                DataSet ds = new DataSet();
-                //SqlCommand command;
-                //int i = 0;
-
                 cmd = conn.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "GetBookByBookId";
                 cmd.Parameters.AddWithValue("@BookId", BookId);
-
                 conn.Open();
-                //command = new SqlCommand(cmd.CommandText, conn);
-                //adapter.SelectCommand = cmd;
-                //adapter.Fill(ds,"dbo.books");
-                //adapter.Dispose();
-                //cmd.Dispose();
-                //conn.Close();
-
-                //for(i = 0; i <= ds.Tables[0].Rows.Count - 1; i++)
-                //{
-
-                //}
-
-
-                    reader = cmd.ExecuteReader();
+                reader = cmd.ExecuteReader();
 
                 if (reader.HasRows)
                 {
@@ -279,6 +210,39 @@ namespace BookApp.DAL
                 conn.Close();
             }
             return status;
+        }
+
+        public List<BookCategory> GetCategories()
+        {
+            List<BookCategory> categorylist = new List<BookCategory>();
+            try
+            {
+                cmd = new SqlCommand("usp_Get_Categories", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(ds, "CategoryMaster");
+                adapter.Dispose();
+                cmd.Dispose();
+                conn.Close();
+                dt = ds.Tables[0];
+
+                for(int i = 0; i<dt.Rows.Count; i++)
+                {
+                    BookCategory category = new BookCategory()
+                    {
+                        CategoryId = Convert.ToInt32(dt.Rows[i]["CategoryId"]),
+                        Category = dt.Rows[i]["CategoryName"].ToString()
+                    };
+                    categorylist.Add(category);
+                }            
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error in reading...." + categorylist.Count);
+                throw ex;
+            }
+            return categorylist;
         }
     }
 }

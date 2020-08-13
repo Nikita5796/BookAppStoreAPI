@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BookApp.API.Entities;
 using BookApp.BLL;
 using BookApp.DAL;
+using BookAppStoreAPI.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookApp.API.Controllers
@@ -14,12 +15,6 @@ namespace BookApp.API.Controllers
     public class BooksController : ControllerBase
     {
         private BookService BookObj = new BookService(new BookContext());
-
-        //[HttpGet]
-        //public ActionResult<List<Book>> GetBooks()
-        //{
-        //    return BookObj.GetBookByCategory();
-        //}
 
         [HttpPost]
         public ActionResult<Book> AddBook(Book book)
@@ -49,5 +44,10 @@ namespace BookApp.API.Controllers
             return BookObj.GetBook(bookId);
         }
 
+        [HttpGet("categories")]
+        public ActionResult<List<BookCategory>> GetCategories()
+        {
+            return BookObj.GetCategories();
+        }
     }
 }

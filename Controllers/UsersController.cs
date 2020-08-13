@@ -8,6 +8,7 @@ using BookApp.API.Helpers;
 using BookApp.API.Services;
 using BookApp.BLL;
 using BookApp.DAL;
+using BookAppStoreAPI.Entities;
 using BookAppStoreAPI.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -42,13 +43,11 @@ namespace BookApp.API.Controllers
                 user.Token = jwtHelper.Generate_Access_Token(user); //access token creation
                 var refreshToken = refToken.Generate_Refresh_Token(); //Refresh token creation
 
-                context.StoreRefreshToken(refreshToken,user.UserId,user.Token); //refresh token store in DB
+                context.StoreRefreshToken(refreshToken, user.UserId, user.Token); //refresh token store in DB
             }
 
             return Ok(user);
         }
-
-
 
         //register
         [HttpPost("Register")]
@@ -59,10 +58,16 @@ namespace BookApp.API.Controllers
             return Ok();
         }
 
-        //[HttpGet]
-        //public ActionResult<IList<User>> GetUsers()
-        //{
-        //    return UserObj.GetUsers();
-        //}
+        [HttpGet("cities")]
+        public ActionResult<List<City>> GetCities()
+        {
+            return UserObj.GetCities();
+        }
+
+        [HttpGet("states")]
+        public ActionResult<List<State>> GetStates()
+        {
+            return UserObj.GetStates();
+        }
     }
 }

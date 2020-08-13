@@ -231,8 +231,8 @@ namespace BookApp.DAL
                 {
                     BookCategory category = new BookCategory()
                     {
-                        CategoryId = Convert.ToInt32(dt.Rows[i]["CategoryId"]),
-                        Category = dt.Rows[i]["CategoryName"].ToString()
+                        Id = Convert.ToInt32(dt.Rows[i]["CategoryId"]),
+                        Name = dt.Rows[i]["CategoryName"].ToString()
                     };
                     categorylist.Add(category);
                 }            

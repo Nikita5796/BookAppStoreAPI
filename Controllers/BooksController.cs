@@ -14,12 +14,12 @@ namespace BookApp.API.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private BookService BookObj = new BookService(new BookContext());
+        private BookService bookService = new BookService(new BookContext());
 
         [HttpPost]
         public ActionResult<Book> AddBook(Book book)
         {
-            BookObj.AddBook(book);
+            bookService.AddBook(book);
 
             return Ok();
         }
@@ -27,13 +27,13 @@ namespace BookApp.API.Controllers
         [HttpGet("category/{categoryId}")]
         public ActionResult<List<Book>> GetBooksByCategoryId(int categoryId)
         {
-            return BookObj.GetBookByCategory(categoryId);
+            return bookService.GetBookByCategory(categoryId);
         }
 
         [HttpPut]
         public ActionResult<Book> UpdateBook(Book book)
         {
-            BookObj.UpdateBook(book);
+            bookService.UpdateBook(book);
 
             return Ok();
         }
@@ -41,13 +41,13 @@ namespace BookApp.API.Controllers
         [HttpGet("{bookId}")]
         public ActionResult<Book> GetBookByBookId(int bookId)
         {
-            return BookObj.GetBook(bookId);
+            return bookService.GetBook(bookId);
         }
 
         [HttpGet("categories")]
         public ActionResult<List<BookCategory>> GetCategories()
         {
-            return BookObj.GetCategories();
+            return bookService.GetCategories();
         }
     }
 }

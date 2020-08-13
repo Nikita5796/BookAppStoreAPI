@@ -1,5 +1,6 @@
 ﻿using BookApp.API.Entities;
 using BookApp.DAL;
+using BookAppStoreAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,18 +17,6 @@ namespace BookApp.BLL
         {
             this.bookDAL = BookDAL;
         }
-
-        //public List<Book> GetAllBookBLL()
-        //{
-        //    try
-        //    {
-        //        return bookDAL.GetBooks();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
 
         public bool AddBook(Book book)
         {
@@ -52,8 +41,7 @@ namespace BookApp.BLL
             }
             catch (Exception ex)
             {
-                //throw ex;
-                return null;
+                throw ex;
             }
         }
 
@@ -77,6 +65,18 @@ namespace BookApp.BLL
             try
             {
                 return bookDAL.GetBook(BookId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<BookCategory> GetCategories()
+        {
+            try
+            {
+                return bookDAL.GetCategories();
             }
             catch (Exception ex)
             {

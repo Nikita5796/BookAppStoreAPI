@@ -1,5 +1,6 @@
 ﻿using BookApp.API.Entities;
 using BookApp.DAL;
+using BookAppStoreAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,34 @@ namespace BookApp.BLL
             {
                 throw ex;
             }
-        }      
+        }
+
+        public List<City> GetCities()
+        {
+            List<City> citylist = new List<City>();
+            try
+            {
+                citylist = userDAL.GetCities();
+                return citylist;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<State> GetStates()
+        {
+            List<State> statelist = new List<State>();
+            try
+            {
+                statelist = userDAL.GetStates();
+                return statelist;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

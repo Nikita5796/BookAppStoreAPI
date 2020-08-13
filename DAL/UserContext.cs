@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using BookApp.API.Entities;
+using BookAppStoreAPI.Entities;
 
 namespace BookApp.DAL
 {
@@ -29,7 +30,7 @@ namespace BookApp.DAL
             try
             {
                 cmd = conn.CreateCommand();
-                cmd.CommandText = "AddUser";
+                cmd.CommandText = "usp_Add_User";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@UserId", user.UserId);
@@ -163,6 +164,72 @@ namespace BookApp.DAL
             {
                 conn.Close();
             }
+        }
+
+        public List<City> GetCities()
+        {
+            List<City> citylist = new List<City>();
+            try
+            {
+                cmd = new SqlCommand("usp_Get_Cities", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(ds, "Cities");
+                adapter.Dispose();
+                cmd.Dispose();
+                conn.Close();
+                dt = ds.Tables[0];
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    City city = new City()
+                    {
+                        CityId = Convert.ToInt32(dt.Rows[i]["CityId"]),
+                        CityName = dt.Rows[i]["CityName"].ToString()
+                    };
+                    citylist.Add(city);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error in reading...." + citylist.Count);
+                throw ex;
+            }
+            return citylist;
+        }
+
+        public List<State> GetStates()
+        {
+            List<State> statelist = new List<State>();
+            try
+            {
+                cmd = new SqlCommand("usp_Get_States", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                adapter.SelectCommand = cmd;
+                adapter.Fill(ds, "States");
+                adapter.Dispose();
+                cmd.Dispose();
+                conn.Close();
+                dt = ds.Tables[0];
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    State state = new State()
+                    {
+                        StateId = Convert.ToInt32(dt.Rows[i]["StateId"]),
+                        StateName = dt.Rows[i]["StateName"].ToString()
+                    };
+                    statelist.Add(state);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error in reading...." + statelist.Count);
+                throw ex;
+            }
+            return statelist;
         }
     }
 }
